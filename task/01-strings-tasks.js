@@ -202,7 +202,7 @@ function extractEmails(str) {
  */
 
 function getRectangleString(width, height) {
-     var  width= 2, height = 2, rectangleString ='';
+     var  rectangleString ='';
 
      for(let i= 0 ;i<height;i++){
 
