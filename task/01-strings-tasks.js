@@ -55,7 +55,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    return firstName + ', ' + lastName;
+    return 'Hello, ' + firstName + ' ' + lastName + '!';
 }
 
 /**
@@ -84,7 +84,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-    return charAt(0);
+    return value.charAt(0);
 }
 
 /**
@@ -286,7 +286,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    return typeof value === 'string' ? true : false;
+    return typeof value === 'string' || || value instanceof String ? true : false;
 }
 
 
