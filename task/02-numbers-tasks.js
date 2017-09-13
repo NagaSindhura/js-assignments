@@ -22,7 +22,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    return width * height;
+    return (width * height);
 }
 
 
@@ -38,9 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    const PI = 3.14159;
-
-    return 2 * PI * radius;
+    return (2 * Math.PI * radius);
 }
 
 /**
@@ -56,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return (value1 + value2) / 2;
+    return ((value1 + value2) / 2);
 }
 
 /**
@@ -78,7 +76,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
     var x = x1 - x2;
     var y = y1 - y2;
 
-    return Math.sqrt(x * x + y * y2);
+    return Math.sqrt((x * x) + (y * y));
 }
 
 /**
@@ -226,7 +224,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    return !value ? 0 : parseInt(value) || def;
+    return (!value ? 0 : parseInt(value) || def);
 }
 
 module.exports = {
