@@ -308,11 +308,11 @@ function getSecondItems(arr) {
 function propagateItemsByPositionIndex(arr) {
      var result = [];
 
-    console.log(arr.forEach(
+    arr.forEach(
         function(item, index) {
             result = result.concat(Array(index + 1).fill(item));
         }
-    ));
+    );
 
     return result;
 }
