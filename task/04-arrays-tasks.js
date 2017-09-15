@@ -253,13 +253,21 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-    return arr.map(
+    var result =[];
+    arr.forEach(
         function(item, index) {
+			if(index ==0) {
+				result.push( arr[index]);
+			}
             if (index < arr.length - 1) {
                 arr[index + 1] = item + arr[index + 1];
+				result.push( arr[index+1]);
             }
+
         }
     );
+    
+    return result;
 }
 
 /**
