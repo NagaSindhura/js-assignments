@@ -132,11 +132,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-    return arr.forEach(
-        function(item, index) {
-            arr[index] = item.toUpperCase();
-        }
-    );
+    return  arr.map( item =>  item.toUpperCase());
 }
 
 
@@ -151,11 +147,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   return arr.forEach(
-        function(item, index) {
-            arr[index] = item.length;
-        }
-    );
+   return arr.map(item => item.length);
 }
 
 /**
@@ -224,12 +216,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   var result = [];
-    arr.forEach(function(item) {
-        result.push('\'' + item.join() + '\\n\'\n');
-    });
-
-    return result;
+   return arr.join('\n');
 }
 
 /**
@@ -266,7 +253,7 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-    return arr.forEach(
+    return arr.map(
         function(item, index) {
             if (index < arr.length - 1) {
                 arr[index + 1] = item + arr[index + 1];
@@ -416,7 +403,9 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   return arr.filter( function(element) {
+        return element === item
+   }).length;
 }
 
 /**
@@ -431,7 +420,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.join();
 }
 
 
