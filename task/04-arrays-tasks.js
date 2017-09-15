@@ -42,7 +42,7 @@ function generateOdds(len) {
 
     Array(len)
         .fill(1)
-        .forEach(
+        .map(
             function(item, index) {
                 oddArray.push(item + (index * 2));
             }
