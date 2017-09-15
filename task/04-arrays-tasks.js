@@ -231,10 +231,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-    var result = [];
-    arr.forEach(item => result.push(Math.pow(item, 2)));
-
-    return result;
+    return arr.map(item => Math.pow(item, 2));
 }
 
 
@@ -254,7 +251,7 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
     var result =[];
-    arr.forEach(
+    arr.map(
         function(item, index) {
 			if(index ==0) {
 				result.push( arr[index]);
@@ -303,7 +300,7 @@ function getSecondItems(arr) {
 function propagateItemsByPositionIndex(arr) {
      var result = [];
 
-    arr.forEach(
+    arr.map(
         function(item, index) {
             result = result.concat(Array(index + 1).fill(item));
         }
