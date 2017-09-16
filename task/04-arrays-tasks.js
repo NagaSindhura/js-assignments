@@ -330,8 +330,7 @@ function get3TopItems(arr) {
   
   return arr.sort(function compareNumbers(a, b) {
                     return a - b;
-                  })
-            .slice(arrLength - topItemsLength , arrLength).reverse());
+                  }).slice(arrLength - topItemsLength , arrLength).reverse();
 }
  
  
