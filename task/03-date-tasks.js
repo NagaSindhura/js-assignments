@@ -22,7 +22,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-   return new Date(value);
+   return Date.parse(value);
 }
 
 /**
@@ -56,7 +56,7 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-   var year = date.getDate();
+   var year = date.getYear();
    
    return ((year%4==0)&&(year%100!=0)||(year%400==0));
 }
