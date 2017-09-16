@@ -341,7 +341,11 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.map(function(item){ 
+                    return Number(item) >0 
+                    }
+                  )
+             .filter( item => item == true).length;
 }
  
 /** 
@@ -358,7 +362,16 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
+     
+  var words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' , 'nine'];
+  
+  return arr.map(function(item){ 
+                    return words.indexOf(item)
+                })
+            .sort()
+            .map(function(item){ 
+                    return words[item] 
+                });
 }
 
 /** 
@@ -374,7 +387,9 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   return  arr.reduce(function(sum, value) {
+                        return sum + value;
+                      }, 0);
 }
  
 /** 
@@ -390,7 +405,13 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+   function isNotFalsyvalues(value) {
+        if (value) {
+            return true;
+        }
+    }
+
+    return arr.filter(item => !isNotFalsyvalues(item)).length;
 }
 
 /**
