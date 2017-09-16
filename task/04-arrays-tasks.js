@@ -324,7 +324,14 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+       
+  var arrLength = arr.length,
+      topItemsLength = arrLength <3 ? arrLength : 3;
+  
+  return arr.sort(function compareNumbers(a, b) {
+                    return a - b;
+                  })
+            .slice(arrLength - topItemsLength , arrLength).reverse());
 }
  
  
@@ -475,7 +482,10 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+   return arr.sort( function(element1, element2) {
+        return element1.country.localeCompare(element2.country) 
+               || element1.city.localeCompare(element2.city);
+        });
 }
 
 /**
@@ -497,7 +507,14 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+     var filledArray= Array(n).fill().map(function(item,index) {
+                                            return Array(n).fill(0)
+                                          });
+     var result = filledArray;
+     
+     return filledArray.map(function(item, index) { 
+                                return result[index][index] = 1
+                            });
 }
 
 /**
