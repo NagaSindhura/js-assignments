@@ -511,9 +511,10 @@ function getIdentityMatrix(n) {
                                           });
      var result = filledArray;
      
-     return filledArray.map(function(item, index) { 
+     filledArray.map(function(item, index) { 
                                 return result[index][index] = 1
                             });
+     return result;
 }
 
 /**
