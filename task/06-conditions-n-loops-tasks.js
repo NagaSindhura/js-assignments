@@ -46,7 +46,13 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    return n == 1 ? 1 : getFactorial(n-1);
+    var result = 1;
+    
+    for(let i = 1 ; i <= n : i++) {
+        result = result * i;
+    }
+    
+    return result;
 }
 
 
@@ -63,7 +69,13 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    return n1 == n2 ? n2 : n1 + getSumBetweenNumbers(n1, n2+1);
+    var result = 0;
+    
+    for(let i = n1 ; i<=n2 : i++) {
+        result = sresult + i;
+    }
+    
+    return result;
 }
 
 
