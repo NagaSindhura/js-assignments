@@ -646,7 +646,7 @@ function swapHeadAndTail(arr) {
         getMiddleIndex =	evenOrOddLength ? (arraylength/2)  : (arraylength -1 ) /2 ;
     return arr.slice(getMiddleIndex +evenOrOddLength,l)
               .concat(arr.slice(getMiddleIndex, getMiddleIndex +evenOrOddLength ))
-              .concat( arr.slice(0, getMiddleIndex)));
+              .concat( arr.slice(0, getMiddleIndex));
 }
 
 
