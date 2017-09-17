@@ -72,7 +72,7 @@ function getSumBetweenNumbers(n1, n2) {
     var result = 0;
     
     for(let i = n1 ; i<=n2 : i++) {
-        result = sresult + i;
+        result = result + i;
     }
     
     return result;
