@@ -641,7 +641,12 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    var arraylength = arr.length,
+        evenOrOddLength =  arraylength % 2,
+        getMiddleIndex =	evenOrOddLength ? (arraylength/2)  : (arraylength -1 ) /2 ;
+    return arr.slice(getMiddleIndex +evenOrOddLength,l)
+              .concat(arr.slice(getMiddleIndex, getMiddleIndex +evenOrOddLength ))
+              .concat( arr.slice(0, getMiddleIndex)));
 }
 
 
