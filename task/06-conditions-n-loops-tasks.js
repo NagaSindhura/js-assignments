@@ -48,7 +48,7 @@ function getFizzBuzz(num) {
 function getFactorial(n) {
     var result = 1;
     
-    for(let i = 1 ; i <= n : i++) {
+    for(let i = 1 ; i <= n ; i++) {
         result = result * i;
     }
     
