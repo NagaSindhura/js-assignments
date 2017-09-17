@@ -31,8 +31,8 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-   return function(param) {
-        return "^[{(]?[0-9A-F]{8}[-]?([0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$";
+   return function exp() {
+        rerturn "^[{(]?[0-9A-F]{8}[-]?([0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$";
    }
 }
 
