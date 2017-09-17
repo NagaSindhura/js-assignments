@@ -643,7 +643,7 @@ function getElementByIndexes(arr, indexes) {
 function swapHeadAndTail(arr) {
     var arraylength = arr.length,
         evenOrOddLength =  arraylength % 2,
-        getMiddleIndex =	evenOrOddLength ? (arraylength/2)  : (arraylength - 1 ) /2 ;
+        getMiddleIndex =	evenOrOddLength == 0 ? (arraylength/2)  : (arraylength - 1 ) /2 ;
 
     return arr.slice(getMiddleIndex +evenOrOddLength,arraylength)
               .concat(arr.slice(getMiddleIndex, getMiddleIndex +evenOrOddLength ))
