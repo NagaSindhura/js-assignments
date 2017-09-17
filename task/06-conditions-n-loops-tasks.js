@@ -30,7 +30,7 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    return (num%3 ==0) ? (num % 5 ==0 ? 'FizzBuzz' : 'Fizz') : (num % 5 == 0 ? 'Buzz' : num);
 }
 
 
