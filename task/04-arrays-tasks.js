@@ -585,7 +585,20 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+   var result = array.reduce(function(previous, current){
+      if(previous[keySelector(current)]){
+         previous[keySelector(current)].push(valueSelector(current));
+      }
+      else {
+         previous[keySelector(current)] = [valueSelector(current)];
+      }
+      return previous;
+   }, {});
+   return new Map(array.map(function(current){
+      var key = keySelector(current);
+      return [key, result[key]];
+   }));
+
 }
 
 
@@ -601,7 +614,9 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+    return arr.reduce(function(previous, current){
+       return previous.concat(childrenSelector(current));
+    }, []);
 }
 
 
@@ -618,7 +633,9 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+    return indexes.reduce(function(previous, current){
+       return previous == undefined ? arr[current] : previous[current];
+    }, undefined);
 }
 
 
