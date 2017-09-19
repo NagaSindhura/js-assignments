@@ -56,7 +56,7 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-      var args = [];
+    var args = [];
     var parsedJSON = JSON.parse(json) ;
     for (var key in parsedJSON) {
         args.push(parsedJSON[key]);

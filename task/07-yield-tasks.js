@@ -144,7 +144,7 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    var minLength;
+var minLength;
     (source1.length > source2.length) ? minLength = source2.length : minLength = source1.length;
     for (var j = 0; j < minLength; j++) {
         if (source1[j] > source2[j]) {

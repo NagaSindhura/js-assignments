@@ -75,7 +75,6 @@ function getPolynom() {
             result += item* Math.pow(numb, Math.abs(i - args.length+1))
         })
         return result;
-    }
 }
 
 
@@ -119,7 +118,7 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(func, attempts) {
-    var countOsCall = 0;
+     var countOsCall = 0;
     if (countOsCall <= attempts) {
         return func();
     }

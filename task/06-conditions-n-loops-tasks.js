@@ -396,20 +396,36 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    var time = endDate - startDate;
-    var round = (numb =>  Math.floor(( time + numb / 2) / numb) ); 
-        return time <= 45 * 1000 ? `a few seconds ago` :  
-           time <= 90 * 1000 ? `a minute ago` :
-           time <= 45 * 60 *1000 ? `${round(60 * 1000)} minutes ago` :
-           time <= 90 * 60 * 1000 ? `an hour ago` :
-           time <= 22 * 60 * 60 * 1000 ? `${round(60 * 60 * 1000)} hours ago` :
-           time <= 36 * 60 * 60 * 1000 ? `a day ago` :
-           time <= 25 * 24 * 60 * 60 * 1000 ? `${round(24 * 60 * 60 * 1000)} days ago` :
-           time <= 45 * 24 * 60 * 60 * 1000 ? `a month ago` :
-           time <= 345 * 24 * 60 * 60 * 1000 ? `${round(30 * 24 * 60 * 60 * 1000)} months ago` :
-           time <= 545 * 24 * 60 * 60 * 1000 ? `a year ago` : `${round(365 * 30 * 24 * 60 * 60 * 1000)} years ago`;
+    var sub = Math.abs( (new Date(startDate)).getTime() - (new Date(endDate)).getTime() );
+    if (sub <= 45000) {
+        return 'a few seconds ago';
+    } else if (sub <= 90000) {
+        return 'a minute ago';
+    } else if (sub <= 45*60*1000) {
+        if (Math.ceil(sub/60000)>2) {
+            return Math.floor(sub/60000) + ' minutes ago';
+        }
+        else {
+            return Math.ceil(sub/60000) + ' minutes ago';
+        }
+    } else if (sub <= 90*60*1000) {
+        return 'an hour ago';
+    } else if (sub <= 22*60*60*1000) {
+        return Math.ceil(sub/3600000) + ' hours ago';
+    } else if (sub <= 36*60*60*1000) {
+        return 'a day ago';
+    } else if (sub <= 25*60*60*24*1000) {
+        return Math.ceil(sub/86400000) + ' days ago';
+    } else if (sub <= 45*60*60*24*1000) {
+        return 'a month ago';
+    } else if (sub <= 345*60*60*24*1000) {
+        return Math.ceil(sub/2592000000) + ' months ago';
+    } else if (sub <= 545*60*60*24*1000) {
+        return 'a year ago';
+    } else {
+        return Math.ceil(sub/31104000000) + ' years ago';
+    }
 }
-
 
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of specified number.
@@ -448,10 +464,19 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-     var A= pathes.concat().sort(), 
-    a1= A[0], a2= A[A.length-1], L= a1.length, i= 0;
-    while(i<L && a1.charAt(i)=== a2.charAt(i)) i++;
-    substr = a1.substring(0, i);
+     var result = '';
+    var commonPart = pathes.reduce(function(prevResult,item,i) {
+        var arr1 = item.split('');
+        var arr2 = prevResult.split('');
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                arr1.length = i;
+            }
+        }
+        return arr1.join('');
+    }, pathes[0]);
+    var lastIndex = commonPart.lastIndexOf('/');
+    return commonPart.substring(0,lastIndex+1)
 }
 
 
