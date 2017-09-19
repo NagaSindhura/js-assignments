@@ -70,12 +70,12 @@ function getPowerFunction(exponent) {
  */
 function getPolynom() {
     return function(numb) {
-        var result=0
+        var result=0;
         args.forEach( function(item, i, args) {
             result += item* Math.pow(numb, Math.abs(i - args.length+1))
         })
      return result;
-     })
+     }
 }
 
 
