@@ -74,7 +74,8 @@ function getPolynom() {
         args.forEach( function(item, i, args) {
             result += item* Math.pow(numb, Math.abs(i - args.length+1))
         })
-        return result;
+     return result;
+     })
 }
 
 
