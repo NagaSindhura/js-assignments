@@ -166,6 +166,7 @@ function isInsideCircle(circle, point) {
             ((point.y - circle.y) * (point.y - circle.y)));
  
   if( d < circle.r)
+  {
     return true;
   }
   
