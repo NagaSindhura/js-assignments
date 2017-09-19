@@ -56,7 +56,12 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-    return Object.setPrototypeOf(JSON.parse(json), proto);
+      var args = [];
+    var parsedJSON = JSON.parse(json) ;
+    for (var key in parsedJSON) {
+        args.push(parsedJSON[key]);
+    }
+    return new proto.constructor(...args);
 }
 
 
@@ -109,36 +114,48 @@ function fromJSON(proto, json) {
  */
 
 const cssSelectorBuilder = {
-
+    result : '',
     element: function(value) {
-        throw new Error('Not implemented');
+        this.result += value;
+        return this;
     },
 
     id: function(value) {
-        throw new Error('Not implemented');
+        this.result += '#' + value;
+        return this;
     },
 
     class: function(value) {
-        throw new Error('Not implemented');
+        this.result += '.' + value;
+        return this;
     },
 
     attr: function(value) {
-        throw new Error('Not implemented');
+        this.result += '[' + value + ']';
+        return this;
     },
 
     pseudoClass: function(value) {
-        throw new Error('Not implemented');
+        this.result += ':' + value;
+        return this;
     },
 
     pseudoElement: function(value) {
-        throw new Error('Not implemented');
+        this.result += '::' + value;
+        return this;
     },
 
     combine: function(selector1, combinator, selector2) {
-        throw new Error('Not implemented');
+        this.result += selector1 + ' ' + combinator + ' ' + selector2;
+        return this;
     },
-};
 
+    stringify: function() {
+        var temp = this.result;
+        this.result = ''
+        return temp;
+    }
+};
 
 module.exports = {
     Rectangle: Rectangle,

@@ -26,7 +26,9 @@
  *
  */
 function getComposition(f,g) {
-    throw new Error('Not implemented');
+    return function(...args) {
+        return f.call(this, g.apply(this, args));
+    }
 }
 
 
@@ -47,7 +49,9 @@ function getComposition(f,g) {
  *
  */
 function getPowerFunction(exponent) {
-    throw new Error('Not implemented');
+     return function(pow) {
+        return Math.pow(pow,exponent);
+    }
 }
 
 
@@ -65,7 +69,13 @@ function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 function getPolynom() {
-    throw new Error('Not implemented');
+    return function(numb) {
+        var result=0
+        args.forEach( function(item, i, args) {
+            result += item* Math.pow(numb, Math.abs(i - args.length+1))
+        })
+        return result;
+    }
 }
 
 
@@ -84,7 +94,12 @@ function getPolynom() {
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
 function memoize(func) {
-    throw new Error('Not implemented');
+    return function() {
+        if (!func.memory) {
+            func.memory = func.call();
+        }
+        return func.memory;
+    }
 }
 
 
@@ -104,7 +119,13 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(func, attempts) {
-    throw new Error('Not implemented');
+    var countOsCall = 0;
+    if (countOsCall <= attempts) {
+        return func();
+    }
+    else {
+        return countOsCall;
+    }
 }
 
 
@@ -150,7 +171,10 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn) {
-    throw new Error('Not implemented');
+    return function(...args) {
+        if(args.length == 0) return fn.apply(this, rest);
+        return fn.apply(this, rest.concat(args))
+    }
 }
 
 
@@ -171,7 +195,11 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-    throw new Error('Not implemented');
+    var count = startFrom;
+    return function() {
+        count++;
+        return count-1;
+    }
 }
 
 
