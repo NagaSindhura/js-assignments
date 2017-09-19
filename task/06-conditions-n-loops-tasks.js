@@ -169,6 +169,9 @@ function isInsideCircle(circle, point) {
   {
     return true;
   }
+  else if (d == circle.r && ((d *d) == (circle.r * circle.r)) { 
+    return true; 
+  }
   
   return false;
 }
