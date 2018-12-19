@@ -1,0 +1,53 @@
+FollowUp Course- Components - Angular 1.5
+---Reference: 
+PluralSight:
+AngularJS: Get Started.
+
+Reference Links:
+https://angularjs.org/
+http://ww1.builtwithangularjs.org/
+https://builtwith.angularjs.org/
+https://www.madewithangular.com/
+
+Online Editor:
+https://plnkr.co/
+
+
+
+  var app = Angular.module("GitModule", []);
+  var tempController = function($scope) {
+    $scope.person = result;
+  }
+
+  var gitController = function($scope, $http) {
+    var person = $http.get("https://api.github.com/users/nagasindhura")
+      .then(tempController)
+  }
+  
+ app.controller("gitController", gitController)
+
+
+
+  var app = Angular.module("GitModule", []);
+  var tempController = function($scope) {
+    $scope.person = result;
+  }
+
+  var gitController = function($scope, $http) {
+    var person = $http.get("https://api.github.com/users/nagasindhura")
+      .then(tempController)
+  }
+  
+ app.controller("gitController", gitController)
+
+
+
+ <div ng-controller="gitController">
+      <h1>Hello Plunker!</h1>
+      <div>Name : {{person.name}}</div>
+      <div>Location : {{person.location}}</div>
+      <div>
+        <img src="{{person.avatar_url}}" alt="{{person.name}}" />
+      </div>
+    </div>
+

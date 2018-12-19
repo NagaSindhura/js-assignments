@@ -1,0 +1,25 @@
+http://www.codeproject.com/Questions/546072/3tierplusarchitectureplusinplusasp-net
+
+http://www.codeproject.com/Questions/435416/How-to-create-a-3-tier-architecture-website-in-ASP
+
+http://www.dotnetfunda.com/articles/article71.aspx
+
+http://www.c-sharpcorner.com/uploadfile/paulabraham/building3tierapppa11282005053625am/building3tierapppa.aspx
+
+http://www.crazyengico.com/Create-A-Website-Using-3-Tier-Architecture.aspx
+
+http://www.aspdotnet-suresh.com/2010/05/introduction-to-3-tier-architecture-in_17.html
+
+http://www.codeproject.com/Questions/401507/ASP-Net-3-Tier-architecture
+
+http://www.aspdotnet-suresh.com/2010/05/introduction-to-3-tier-architecture-in_17.html
+
+http://www.dotnetfunda.com/articles/article71.aspx
+
+
+4-0tier
+http://www.codeproject.com/Articles/493389/Four-ways-of-passing-data-between-layers
+
+http://www.codeproject.com/Articles/430014/N-Tier-Architecture-and-Tips#3-Tier Architecture
+
+http://www.aspdotnet-suresh.com/2010/05/introduction-to-3-tier-architecture-in_17.html

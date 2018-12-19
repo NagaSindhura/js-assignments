@@ -1,0 +1,38 @@
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Xml)]
+        public static string GetCustomers()
+        {
+            string query = "SELECT * FROM Customers";
+            SqlCommand cmd = new SqlCommand(query);
+            
+            // Populate the DataSet.
+            DataSet data = GetData(cmd);
+            // return the Customers table as XML.
+            System.IO.StringWriter writer = new System.IO.StringWriter();
+            data.Tables[0].WriteXml(writer, XmlWriteMode.WriteSchema, false);
+            return writer.ToString(); 
+        }
+        
+        private static DataSet GetData(SqlCommand cmd)
+        {
+           //SqlConnection conn = new SqlConnection();
+
+            using (SqlConnection con = new SqlConnection(@"Data Source=HYD-NPULIVARTHY;Initial Catalog=usertable;Integrated Security=True"))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataSet ds = new DataSet())
+                    {
+                        sda.Fill(ds);
+                        return ds;
+                    }
+                }
+            }
+        }
+    }
+}
